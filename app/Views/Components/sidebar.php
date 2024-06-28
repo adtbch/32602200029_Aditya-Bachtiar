@@ -177,6 +177,11 @@
                         } else {
                             document.querySelector('.gp-content').classList.add('hidden');
                         }
+                        if (savedLink === 'Calender') {
+                            document.querySelector('.calender-content').classList.remove('hidden');
+                        } else {
+                            document.querySelector('.calender-content').classList.add('hidden');
+                        }
                     }
                 });
             }
@@ -214,6 +219,11 @@
                         document.querySelector('.gp-content').classList.remove('hidden');
                     } else {
                         document.querySelector('.gp-content').classList.add('hidden');
+                    }
+                    if (linkName === 'Calender') {
+                        document.querySelector('.calender-content').classList.remove('hidden');
+                    } else {
+                        document.querySelector('.calender-content').classList.add('hidden');
                     }
                 });
             });

@@ -1,5 +1,58 @@
 <?php echo $this->extend('Components/sidebar'); ?>
 <?php echo $this->section('content'); ?>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .calendar {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .day, .day-name {
+            box-sizing: border-box;
+            width: calc(100% / 7);
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .day-name {
+            font-weight: bold;
+        }
+        .today {
+            background-color: #71A430;
+            color: white;
+            border-radius: 2vh;
+        }
+        .selected {
+            background-color: #007bff;
+            color: white;
+            border-radius: 2vh;
+        }
+        .calendar-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .calendar-controls button {
+            background-color: #71A430;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        #selectedDate {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
 <style>
         table {
             width: 100%;
@@ -208,12 +261,104 @@
         </tbody>
     </table>
     <a href="#">
-        <h4 class="my-4 text-third position-relative fst-italic">+ New<span style="background-color: #005073;" class="underline"></span></h4>
+        <h3 class="my-4 text-third fw-bold position-relative fst-italic">+ New<span style="background-color: #005073;" class="underline"></span></h3>
     </a>
-    <div>
-  
-    </div>
+</div>
+</div>
+<div class="calender-content hidden">
+     <div class="container my-5 text-center border shadow">
+        <div class="calendar-controls">
+            <button id="prevMonth">&lt;</button>
+            <h2 id="monthYear"></h2>
+            <button id="nextMonth">&gt;</button>
+        </div>
+        <div id="calendar" class="calendar"></div>
+        <div id="selectedDate"></div>
     </div>
 </div>
 
+    <script>
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        let selectedDateElement = null;
+        let currentYear = new Date().getFullYear();
+        let currentMonth = new Date().getMonth();
+
+        function createCalendar(year, month) {
+            const calendar = document.getElementById('calendar');
+            const monthYear = document.getElementById('monthYear');
+            calendar.innerHTML = '';
+
+            const today = new Date();
+            const currentDay = today.getDate();
+            const todayMonth = today.getMonth();
+            const todayYear = today.getFullYear();
+
+            monthYear.textContent = `${monthNames[month]} ${year}`;
+
+            // Add day names
+            dayNames.forEach(day => {
+                const dayNameCell = document.createElement('div');
+                dayNameCell.classList.add('day-name');
+                dayNameCell.textContent = day;
+                calendar.appendChild(dayNameCell);
+            });
+
+            const firstDayOfMonth = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            for (let i = 0; i < firstDayOfMonth; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.classList.add('day');
+                calendar.appendChild(emptyCell);
+            }
+
+            for (let i = 1; i <= daysInMonth; i++) {
+                const dayCell = document.createElement('div');
+                dayCell.classList.add('day');
+                if (i === currentDay && month === todayMonth && year === todayYear) {
+                    dayCell.classList.add('today');
+                }
+                dayCell.textContent = i;
+                dayCell.addEventListener('click', () => selectDate(dayCell, year, month, i));
+                calendar.appendChild(dayCell);
+            }
+        }
+
+        function selectDate(element, year, month, day) {
+            if (selectedDateElement) {
+                selectedDateElement.classList.remove('selected');
+            }
+            element.classList.add('selected');
+            selectedDateElement = element;
+            const selectedDate = new Date(year, month, day);
+            const dayName = dayNames[selectedDate.getDay()];
+            document.getElementById('selectedDate').textContent = `Selected Date: ${dayName}, ${monthNames[month]} ${day}, ${year}`;
+        }
+
+        function navigateMonth(offset) {
+            currentMonth += offset;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            } else if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            createCalendar(currentYear, currentMonth);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('prevMonth').addEventListener('click', function () {
+                navigateMonth(-1);
+            });
+
+            document.getElementById('nextMonth').addEventListener('click', function () {
+                navigateMonth(1);
+            });
+
+            createCalendar(currentYear, currentMonth);
+        });
+    </script>
 <?php echo $this->endSection(); ?>
