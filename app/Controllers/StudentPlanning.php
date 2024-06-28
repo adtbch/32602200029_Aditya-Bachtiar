@@ -29,5 +29,13 @@ class StudentPlanning extends BaseController {
     {
         return view('Pages/profile');
     }
+    public function login()
+    {
+        return view('Pages/login');
+    }
+    public function register()
+    {
+        return view('Pages/register');
+    }
 }
 ?>
