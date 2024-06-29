@@ -273,7 +273,7 @@
     </a>
  </div>
  <!-- MM jadwal Belajar -->
-<div class="jadwalBelajar-content hidden">
+<div class="meeting-content hidden">
     <!--  -->
     <div class="container">
         <h3 class="my-4 col-6 col-sm-5 col-md-3 text-primary fw-bold position-relative text-decoration-underline">Meeting<span style="background-color: #71A430;"></span></h3>
