@@ -207,11 +207,6 @@
                     } else {
                         document.querySelector('.inputjk-content').classList.add('hidden');
                     }
-                    if (savedLink === '+ Newju') {
-                        document.querySelector('.inputju-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.inputju-content').classList.add('hidden');
-                    }
                     if (savedLink === 'Jadwal Ujian') {
                         document.querySelector('.jadwalUjian-content').classList.remove('hidden');
                     } else {
@@ -291,7 +286,7 @@
                         document.querySelector('.inputju-content').classList.add('hidden');
                     }
                     if (linkName === 'Jadwal Ujian') {
-                        document.querySelector('.jadwalUjian-content').classList.remove('hidden');
+                        document.querySelector('.jawalUjian-content').classList.remove('hidden');
                     } else {
                         document.querySelector('.jadwalUjian-content').classList.add('hidden');
                     }

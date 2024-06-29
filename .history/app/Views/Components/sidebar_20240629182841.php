@@ -182,40 +182,30 @@
                         } else {
                             document.querySelector('.calender-content').classList.add('hidden');
                         }
-                        if (savedLink === 'Project') {
+                        if (linkName === 'Project') {
                         document.querySelector('.project-content').classList.remove('hidden');
                     } else {
                         document.querySelector('.project-content').classList.add('hidden');
                     }
-                    if (savedLink === 'TodoList') {
+                    if (linkName === 'TodoList') {
                         document.querySelector('.tl-content').classList.remove('hidden');
                     } else {
                         document.querySelector('.tl-content').classList.add('hidden');
                     }
-                    if (savedLink === 'Meeting') {
+                    if (linkName === 'Meeting') {
                         document.querySelector('.meeting-content').classList.remove('hidden');
                     } else {
                         document.querySelector('.meeting-content').classList.add('hidden');
                     }
-                    if (savedLink === 'Jadwal Kuliah') {
+                    if (linkName === 'Jadwal Kuliah') {
                         document.querySelector('.jadwalKuliah-content').classList.remove('hidden');
                     } else {
                         document.querySelector('.jadwalKuliah-content').classList.add('hidden');
                     }
-                    if (savedLink === '+ Newjk') {
+                    if (linkName === '+ Newjk') {
                         document.querySelector('.inputjk-content').classList.remove('hidden');
                     } else {
                         document.querySelector('.inputjk-content').classList.add('hidden');
-                    }
-                    if (savedLink === '+ Newju') {
-                        document.querySelector('.inputju-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.inputju-content').classList.add('hidden');
-                    }
-                    if (savedLink === 'Jadwal Ujian') {
-                        document.querySelector('.jadwalUjian-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.jadwalUjian-content').classList.add('hidden');
                     }
                     }
                 });
@@ -284,16 +274,6 @@
                         document.querySelector('.inputjk-content').classList.remove('hidden');
                     } else {
                         document.querySelector('.inputjk-content').classList.add('hidden');
-                    }
-                    if (linkName === '+ Newju') {
-                        document.querySelector('.inputju-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.inputju-content').classList.add('hidden');
-                    }
-                    if (linkName === 'Jadwal Ujian') {
-                        document.querySelector('.jadwalUjian-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.jadwalUjian-content').classList.add('hidden');
                     }
                 });
             });

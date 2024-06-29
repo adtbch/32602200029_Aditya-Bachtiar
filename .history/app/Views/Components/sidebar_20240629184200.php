@@ -140,6 +140,7 @@
             </div>
         </div>
     </div>
+    <label for=""></label>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -291,7 +292,7 @@
                         document.querySelector('.inputju-content').classList.add('hidden');
                     }
                     if (linkName === 'Jadwal Ujian') {
-                        document.querySelector('.jadwalUjian-content').classList.remove('hidden');
+                        document.querySelector('.jawalUjian-content').classList.remove('hidden');
                     } else {
                         document.querySelector('.jadwalUjian-content').classList.add('hidden');
                     }

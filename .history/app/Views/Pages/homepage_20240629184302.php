@@ -88,15 +88,13 @@
     <div class="container d-flex justify-content-between gap-4">
         <div class="col-4">
             <div class="rounded bg-second p-4" style="border: 2px solid #71A430;">
-                <div class="d-flex row gap-4 justify-content-center"> 
-                    <img src="" style="object-position: center; object-fit: cover;width: 100px; height: 80px; border-radius: 50%;" alt="">
+                <div class="d-flex row gap-4 justify-content-center">
+                    <img src="" style="width: 15vh; height: 15vh;" class="bg-white col-2 rounded-circle" alt="">
                     <div class="text-center text-primary">Moch.taufik febriansyah</div>
-                   <div class="col-5">
-                       <label for="foto">
-                           <input type="file" class="hidden" id="foto">
-                           <button type="button" class="bg-primary rounded p-2 text-white " onclick="document.getElementById('foto').click();">Edit Foto</button>
-                        </label>
-                    </div>
+                    <input type="fil">
+                    <label for="">
+                        <button class="bg-primary rounded p-2 text-white col-4">Edit Foto</button>
+                    </label>
                 </div>
             </div>
         </div>
@@ -319,31 +317,6 @@
         </div>
         <div>
             <h4 class="my-2 text-primary fw-bold position-relative">Ruang</h4>
-            <input class="rounded p-2 bg-second" type="text" placeholder="ruangan">
-        </div>
-        <button class="bg-primary rounded p-1 mt-4 text-white">
-            Add
-        </button>
-    </div>
-  </div>
-  <!-- inputJu -->
-  <div class="inputju-content hidden">
-    <div class="col-6 col-sm-5 col-md-4">
-        <h3 class="my-4 text-primary fw-bold position-relative text-decoration-underline">Jadwal Mata Kuliah<span style="background-color: #71A430;"></span></h3>
-        <div>
-            <h4 class="my-2 text-primary fw-bold position-relative">Mata Kuliah Ujian</h4>
-            <input class="rounded p-2 bg-second" type="text" placeholder="mata kuliah">
-        </div>
-        <div>
-            <h4 class="my-2 text-primary fw-bold position-relative">Jam Ujian</h4>
-            <input class="rounded p-2 bg-second" type="text" placeholder="waktu">
-        </div>
-        <div>
-            <h4 class="my-2 text-primary fw-bold position-relative">Hari Ujian</h4>
-            <input class="rounded p-2 bg-second" type="text" placeholder="hari">
-        </div>
-        <div>
-            <h4 class="my-2 text-primary fw-bold position-relative">Ruang Ujian</h4>
             <input class="rounded p-2 bg-second" type="text" placeholder="ruangan">
         </div>
         <button class="bg-primary rounded p-1 mt-4 text-white">

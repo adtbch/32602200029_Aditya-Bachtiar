@@ -147,8 +147,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     
     <!-- JavaScript for saving link names and changing background -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
+       <script>
+              document.addEventListener('DOMContentLoaded', function () {
             const links = document.querySelectorAll('a');
             
             // Apply the active class to the previously clicked link
@@ -182,41 +182,6 @@
                         } else {
                             document.querySelector('.calender-content').classList.add('hidden');
                         }
-                        if (savedLink === 'Project') {
-                        document.querySelector('.project-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.project-content').classList.add('hidden');
-                    }
-                    if (savedLink === 'TodoList') {
-                        document.querySelector('.tl-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.tl-content').classList.add('hidden');
-                    }
-                    if (savedLink === 'Meeting') {
-                        document.querySelector('.meeting-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.meeting-content').classList.add('hidden');
-                    }
-                    if (savedLink === 'Jadwal Kuliah') {
-                        document.querySelector('.jadwalKuliah-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.jadwalKuliah-content').classList.add('hidden');
-                    }
-                    if (savedLink === '+ Newjk') {
-                        document.querySelector('.inputjk-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.inputjk-content').classList.add('hidden');
-                    }
-                    if (savedLink === '+ Newju') {
-                        document.querySelector('.inputju-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.inputju-content').classList.add('hidden');
-                    }
-                    if (savedLink === 'Jadwal Ujian') {
-                        document.querySelector('.jadwalUjian-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.jadwalUjian-content').classList.add('hidden');
-                    }
                     }
                 });
             }
@@ -259,41 +224,6 @@
                         document.querySelector('.calender-content').classList.remove('hidden');
                     } else {
                         document.querySelector('.calender-content').classList.add('hidden');
-                    }
-                    if (linkName === 'Project') {
-                        document.querySelector('.project-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.project-content').classList.add('hidden');
-                    }
-                    if (linkName === 'TodoList') {
-                        document.querySelector('.tl-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.tl-content').classList.add('hidden');
-                    }
-                    if (linkName === 'Meeting') {
-                        document.querySelector('.meeting-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.meeting-content').classList.add('hidden');
-                    }
-                    if (linkName === 'Jadwal Kuliah') {
-                        document.querySelector('.jadwalKuliah-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.jadwalKuliah-content').classList.add('hidden');
-                    }
-                    if (linkName === '+ Newjk') {
-                        document.querySelector('.inputjk-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.inputjk-content').classList.add('hidden');
-                    }
-                    if (linkName === '+ Newju') {
-                        document.querySelector('.inputju-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.inputju-content').classList.add('hidden');
-                    }
-                    if (linkName === 'Jadwal Ujian') {
-                        document.querySelector('.jadwalUjian-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.jadwalUjian-content').classList.add('hidden');
                     }
                 });
             });

@@ -89,7 +89,7 @@
         <div class="col-4">
             <div class="rounded bg-second p-4" style="border: 2px solid #71A430;">
                 <div class="d-flex row gap-4 justify-content-center"> 
-                    <img src="" style="object-position: center; object-fit: cover;width: 100px; height: 80px; border-radius: 50%;" alt="">
+                    <img src="<?=base_url("assets/images/DSC_0357.jpg") ?>" style="object-position: center; object-fit: cover;width: 200px; " class="bg-white col-2 rounded-circle" alt="">
                     <div class="text-center text-primary">Moch.taufik febriansyah</div>
                    <div class="col-5">
                        <label for="foto">

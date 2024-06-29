@@ -207,15 +207,10 @@
                     } else {
                         document.querySelector('.inputjk-content').classList.add('hidden');
                     }
-                    if (savedLink === '+ Newju') {
-                        document.querySelector('.inputju-content').classList.remove('hidden');
+                    if (savedLink === '+ Jadwal Ujian') {
+                        document.querySelector('.inputjk-content').classList.remove('hidden');
                     } else {
-                        document.querySelector('.inputju-content').classList.add('hidden');
-                    }
-                    if (savedLink === 'Jadwal Ujian') {
-                        document.querySelector('.jadwalUjian-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.jadwalUjian-content').classList.add('hidden');
+                        document.querySelector('.inputjk-content').classList.add('hidden');
                     }
                     }
                 });
@@ -284,16 +279,6 @@
                         document.querySelector('.inputjk-content').classList.remove('hidden');
                     } else {
                         document.querySelector('.inputjk-content').classList.add('hidden');
-                    }
-                    if (linkName === '+ Newju') {
-                        document.querySelector('.inputju-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.inputju-content').classList.add('hidden');
-                    }
-                    if (linkName === 'Jadwal Ujian') {
-                        document.querySelector('.jadwalUjian-content').classList.remove('hidden');
-                    } else {
-                        document.querySelector('.jadwalUjian-content').classList.add('hidden');
                     }
                 });
             });

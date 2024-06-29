@@ -22,6 +22,26 @@ class StudentPlanning extends BaseController {
                 'deadline' => '2024-08-01',
             ],
         ];
+        $data['meeting'] = [
+            [
+                'date' => '01/07/2024',
+                'time' => '07.00 - 08.00',
+                'activity' => 'membuat project aplikasi',
+                'notes' => 'diholding kopi',
+            ],
+            [
+                'date' => '01/07/2024',
+                'time' => '07.00 - 08.00',
+                'activity' => 'membuat project aplikasi',
+                'notes' => 'diholding kopi',
+            ],
+            [
+                'date' => '01/07/2024',
+                'time' => '07.00 - 08.00',
+                'activity' => 'membuat project aplikasi',
+                'notes' => 'diholding kopi',
+            ],
+        ];
 
         return view('Pages/homepage',$data);
     }

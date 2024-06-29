@@ -291,7 +291,7 @@
                         document.querySelector('.inputju-content').classList.add('hidden');
                     }
                     if (linkName === 'Jadwal Ujian') {
-                        document.querySelector('.jadwalUjian-content').classList.remove('hidden');
+                        document.querySelector('.jawalUjian-content').classList.remove('hidden');
                     } else {
                         document.querySelector('.jadwalUjian-content').classList.add('hidden');
                     }
