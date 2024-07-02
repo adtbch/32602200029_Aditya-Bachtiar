@@ -103,7 +103,7 @@
                             </div>
                         </div>
                         <div class="ps-2">
-                            <a href="/StudentPlanning" class="d-flex align-items-end align-text-bottom gap-2 text-decoration-none" id="logoutLink">
+                            <a href="/" class="d-flex align-items-end align-text-bottom gap-2 text-decoration-none">
                                 <img src="<?= base_url('assets/images/iconLogout.svg') ?>" alt="Profile Icon" class="me-2 col-2 custom-size">
                                 <p class="fs-5 mb-0 fw-bold d-none d-sm-block">Logout</p>
                             </a>
