@@ -44,8 +44,8 @@
             <div class="col-12 col-md-6 d-flex flex-column align-items-center text-center mb-4 mb-md-0">
                 <h1 class="fw-bold signup-title">Sign Up</h1>
                 <div class="mt-5 w-75">
-                    <form id="signupForm" method="POST" action="submit.php">
-                        <input style="outline: none;" class="signup-input w-100 mb-3" type="text" placeholder="Username" name="username" required>
+                    <form id="signupForm" method="POST" action="/auth/registerUser">
+                        <input style="outline: none;" class="signup-input w-100 mb-3" type="text" placeholder="Name" name="nama" required>
                         <input style="outline: none;" class="signup-input w-100 mb-3" type="email" placeholder="Your Email" name="email" required>
                         <div class="input-group mb-3">
                             <input style="outline: none;" id="password" name="password" class="col-10 signup-input" type="password" placeholder="Password" required>

@@ -21,12 +21,12 @@
     <div class="container d-flex justify-content-center align-item-center">
         <div class="col-10 col-sm-6 col-md-3 text-center " style="margin-top: 5vh;">
             <h1 style="color: #71A430;" class="fw-bold">Sign In</h1>
-            <div style="margin-top: 10vh;" class="d-flex gap-4 row">
-                <input class="rounded p-2" type="text" placeholder="email">
-                <input class="rounded p-2" type="password" placeholder="password">
+            <form action="/auth/loginUser" method="post" style="margin-top: 10vh;" class="d-flex gap-4 row">
+                <input class="rounded p-2" type="email" name="email" placeholder="Email">
+                <input class="rounded p-2" type="password" name="password" placeholder="Password">
                 <button class="rounded p-2 shadow text-white fw-bold" style="background-color: #71A430;">Login</button>
                 <p class="fw-bold">Belum Punya Akun ? <a href="/register" class="fw-bold text-primary">Sign Up</a></p>
-            </div>
+            </form>
         </div>
     </div>
 

@@ -114,11 +114,7 @@
             <div class="col-9 p-3">
                 <div class="sticky-top bg-white pt-2 pb-3 px-2">
                     <nav class="bg-primary navbar navbar-custom w-100 rounded-4">
-                        <div class="container-fluid">
-                            <ul class="navbar-nav me-auto">
-                                <input type="text" class="rounded bg-second" style="outline: none;" placeholder="Search....">
-                            </ul>
-                            
+                        <div class="container-fluid"> 
                             <!-- Navbar Items on the Right -->
                             <ul class="navbar-nav ms-auto d-flex flex-row gap-3">
                                 <!-- About Us -->
@@ -136,28 +132,57 @@
 
                 <!-- Konten untuk setiap link -->
                 <div id="mainContent">
-                    <div class="rounded-4 aboutUsLink-content content hidden container bg-second" style="border: 2px solid #71A430;">
+                <div class="rounded-4 aboutUsLink-content content hidden container bg-second" style="border: 2px solid #71A430;">
                        <h1 class="fst-italic fw-bold">What is RemindMe?</h1>
-                       <p>RemindMe adalah sebuah aplikasi student planner berbasis web yang bisa
-                            membantu mahasiswa memanage akademik dengan baik.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, eaque
-                            molestiae modi enim facere maiores veniam magni voluptatem esse perferendis culpa, labore
-                            nisi impedit neque harum. Molestiae placeat delectus dolorem?</p>
-                       <p>RemindMe adalah sebuah aplikasi student planner berbasis web yang bisa
-                            membantu mahasiswa memanage akademik dengan baik.
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, eaque
-                            molestiae modi enim facere maiores veniam magni voluptatem esse perferendis culpa, labore
-                            nisi impedit neque harum. Molestiae placeat delectus dolorem?</p>
+                       <p><b>Tim di balik layar</b></p>
+                       <p>Aplikasi  student planner ini dikembangkan dengan dedikasi oleh RemindMe Group
+                        yang terdiri dari sekelompok Mahasiswa Unissula Prodi Teknik Informatika angkatan 2022
+                        yang memiliki semangat untuk membantu para pelajar sukses dalam pendidikan mereka. 
+                        Kami percaya bahwa organisasi dan perencanaan yang tepat adalah kunci untuk meraih 
+                        prestasi akademik yang optimal.</p>
+                        <p><b>Misi Kami</b></p>
+                        <p>Misi kami adalah menyediakan alat yang mudah digunakan dan komprehensif untuk membantu 
+                        siswa dari semua tingkatan mengelola tugas sekolah, ujian, dan jadwal mereka secara efektif. 
+                        Kami ingin memberdayakan siswa untuk mengambil kendali atas pendidikan mereka dan mencapai 
+                        potensi penuh mereka.</p>
+                        <p>Mengapa Kami Membuat Aplikasi Ini?</p>
+                        <p>Sebagai pelajar, kami pernah merasakan perjuangan dalam menyeimbangkan 
+                        beban tugas sekolah, kegiatan ekstrakurikuler, dan kehidupan sosial. Kami tahu betapa mudahnya 
+                        kewalahan dan tertinggal jika tidak memiliki sistem organisasi yang baik.</p>
+                        <p>Aplikasi ini dibuat untuk membantu siswa mengatasi tantangan tersebut. Kami ingin memberikan  
+                        alat yang dapat membantu siswa:</p>
+                        <ul>
+                            <li>Melacak tugas dan tenggat waktu.</li>
+                            <li>Merencanakan jadwal belajar.</li>
+                            <li>Menetapkan dan melacak tujuan akademik.</li>
+                            <li>Meningkatkan keterampilan manajemen waktu.</li>
+                            <li>Mencegah stres dan kecemasan terkait sekolah.</li>
+                        </ul>
+                        <p><b>Nilai-Nilai Kami</b></p>
+                        <p>Kami percaya pada:</p>
+                        <ul>
+                            <li>Pembelajaran seumur hidup: Kami berkomitmen untuk terus mengembangkan dan meningkatkan aplikasi 
+                                ini berdasarkan kebutuhan dan masukan pengguna.</li>
+                            <li>Aksesibilitas: Kami ingin memastikan aplikasi ini tersedia dan mudah digunakan oleh semua siswa, 
+                                terlepas dari latar belakang atau kemampuan mereka.</li>
+                            <li>Kolaborasi: Kami terbuka untuk saran dan umpan balik dari pengguna untuk terus menyempurnakan aplikasi ini.</li>
+                        </ul>
+                        <p><b>Mari Terhubung!</b></p>
+                        <p>Kami selalu senang mendengar pendapat Anda! Silahkan hubungi kami melalui Remindme@gmail.com untuk berbagi umpan balik, 
+                            saran, atau pertanyaan. Kami menghargai keterlibatan Anda dalam perjalanan kami untuk membantu siswa sukses.</p>
+
+                        <p><b>Terima kasih telah menggunakan aplikasi Student Planner kami!</b></p>
                     </div>
-                    <div class="p-5 rounded-4 contactUsLink-content content hidden container bg-second" style="border: 2px solid #71A430;">
+                    <form action="/StudentPlanning/input_message" method="post" class="p-5 rounded-4 contactUsLink-content content hidden container bg-second" style="border: 2px solid #71A430;">
                     <h4 class="mb-4 fw-bold text-primary">Message</h4>   
-                        <textarea type="text" style="height: 50vh; width: 100%;" name="" id=""></textarea>
+                    <input type="hidden" name="id_message" id="id_message">
+                        <textarea type="text" style="height: 50vh; width: 100%;" name="message" id="message"></textarea>
                         <div class="d-flex justify-content-center">
                             <a href="#" id="messageLink">
                                 <button class="p-2 rounded-2 bg-primary text-white fw-semibold mt-4">Send Message</button>
                             </a>
                         </div>
-                    </div>
+                    </form>
                     <div class="p-5 rounded-4 messageLink-content content hidden container bg-second" style="border: 2px solid #71A430;">
                     <h4 class="mb-4 fw-bold text-primary">Message</h4>   
                         <div type="text" style="height: 50vh; width: 100%; border: 2px solid gray;"  class="p-2 bg-white rounded-2 d-flex justify-content-center">

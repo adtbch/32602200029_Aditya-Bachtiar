@@ -139,7 +139,7 @@
 
     // Fungsi untuk mengelola tampilan konten berdasarkan link yang aktif
     function updateContent(linkName) {
-        console.log(linkName);
+        // console.log(linkName);
         if (linkName === 'Home') {
             document.querySelector('.home-content').classList.remove('hidden');
         } else {

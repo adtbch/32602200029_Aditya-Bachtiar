@@ -138,7 +138,7 @@
     <?=$this->include('Pages/M&M/todoList/todoList') ?>
     </div>
     <!-- view TodoList MM -->
-    <div class="inputTodoListLink-content content hidden">
+    <div class="inputTodoListMMLink-content content hidden">
     <?=$this->include('Pages/M&M/todoList/inputTodoList') ?>
     </div>
     <!--view MM jadwal Belajar -->
@@ -159,7 +159,11 @@
     </div>
     <!-- view catatan -->
     <div class="catatanLink-content content hidden">
-      <?=$this->include('Pages/M&M/catatan') ?>
+      <?=$this->include('Pages/M&M/mataKuliah/catatan') ?>
+    </div>
+    <!-- input catatan -->
+    <div class="inputCatatanLink-content content hidden">
+      <?=$this->include('Pages/M&M/mataKuliah/inputCatatan') ?>
     </div>
     <!-- detail Mata Kuliah -->
     <div class="detailMataKuliahLink-content content hidden container">
@@ -169,10 +173,7 @@
     <div class="inputDetailMataKuliahLink-content content hidden container">
       <?=$this->include('Pages/M&M/mataKuliah/inputDetailMataKuliahMateri') ?>
     </div>
-    <!-- detail Mata Kuliah -->
-    <div class="inputDetailMataKuliahTugasLink-content content hidden container">
-      <?=$this->include('Pages/M&M/mataKuliah/inputDetailMataKuliahTugas') ?>
-    </div>
+
     <!-- MM tugas -->
     <div class="tugasLink-content content container hidden">
      <?=$this->include('Pages/M&M/tugas/tugas') ?>
@@ -238,89 +239,141 @@
         <?=$this->include('Pages/calender/calender') ?>
     </div>
 
-
     <script>
-        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    let selectedDateElement = null;
+    let currentYear = new Date().getFullYear();
+    let currentMonth = new Date().getMonth();
+    let notes = {};
 
-        let selectedDateElement = null;
-        let currentYear = new Date().getFullYear();
-        let currentMonth = new Date().getMonth();
+    async function fetchNotes(year, month) {
+        const response = await fetch(`StudentPlanning/getNotes?year=${year}&month=${month}`);
+        notes = await response.json();
+    }
 
-        function createCalendar(year, month) {
-            const calendar = document.getElementById('calendar');
-            const monthYear = document.getElementById('monthYear');
-            calendar.innerHTML = '';
+    async function createCalendar(year, month) {
+        await fetchNotes(year, month);
+        const calendar = document.getElementById('calendar');
+        const monthYear = document.getElementById('monthYear');
+        calendar.innerHTML = '';
 
-            const today = new Date();
-            const currentDay = today.getDate();
-            const todayMonth = today.getMonth();
-            const todayYear = today.getFullYear();
+        const today = new Date();
+        const currentDay = today.getDate();
+        const todayMonth = today.getMonth();
+        const todayYear = today.getFullYear();
 
-            monthYear.textContent = `${monthNames[month]} ${year}`;
+        monthYear.textContent = `${monthNames[month]} ${year}`;
 
-            // Add day names
-            dayNames.forEach(day => {
-                const dayNameCell = document.createElement('div');
-                dayNameCell.classList.add('day-name');
-                dayNameCell.textContent = day;
-                calendar.appendChild(dayNameCell);
-            });
-
-            const firstDayOfMonth = new Date(year, month, 1).getDay();
-            const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-            for (let i = 0; i < firstDayOfMonth; i++) {
-                const emptyCell = document.createElement('div');
-                emptyCell.classList.add('day');
-                calendar.appendChild(emptyCell);
-            }
-
-            for (let i = 1; i <= daysInMonth; i++) {
-                const dayCell = document.createElement('div');
-                dayCell.classList.add('day');
-                if (i === currentDay && month === todayMonth && year === todayYear) {
-                    dayCell.classList.add('today');
-                }
-                dayCell.textContent = i;
-                dayCell.addEventListener('click', () => selectDate(dayCell, year, month, i));
-                calendar.appendChild(dayCell);
-            }
-        }
-
-        function selectDate(element, year, month, day) {
-            if (selectedDateElement) {
-                selectedDateElement.classList.remove('selected');
-            }
-            element.classList.add('selected');
-            selectedDateElement = element;
-            const selectedDate = new Date(year, month, day);
-            const dayName = dayNames[selectedDate.getDay()];
-            document.getElementById('selectedDate').textContent = `Selected Date: ${dayName}, ${monthNames[month]} ${day}, ${year}`;
-        }
-
-        function navigateMonth(offset) {
-            currentMonth += offset;
-            if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
-            } else if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
-            }
-            createCalendar(currentYear, currentMonth);
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('prevMonth').addEventListener('click', function () {
-                navigateMonth(-1);
-            });
-
-            document.getElementById('nextMonth').addEventListener('click', function () {
-                navigateMonth(1);
-            });
-
-            createCalendar(currentYear, currentMonth);
+        // Add day names
+        dayNames.forEach(day => {
+            const dayNameCell = document.createElement('div');
+            dayNameCell.classList.add('day-name');
+            dayNameCell.textContent = day;
+            calendar.appendChild(dayNameCell);
         });
-    </script>
+
+        const firstDayOfMonth = new Date(year, month, 1).getDay();
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+        for (let i = 0; i < firstDayOfMonth; i++) {
+            const emptyCell = document.createElement('div');
+            emptyCell.classList.add('day');
+            calendar.appendChild(emptyCell);
+        }
+
+        for (let i = 1; i <= daysInMonth; i++) {
+            const dayCell = document.createElement('div');
+            dayCell.classList.add('day');
+            if (i === currentDay && month === todayMonth && year === todayYear) {
+                dayCell.classList.add('today');
+            }
+            dayCell.textContent = i;
+
+            const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+            if (notes[dateStr]) {
+                const icon = document.createElement('span');
+                icon.classList.add('note-icon');
+                icon.textContent = '📝';
+                dayCell.appendChild(icon);
+            }
+
+            dayCell.addEventListener('click', () => selectDate(dayCell, year, month, i));
+            calendar.appendChild(dayCell);
+        }
+    }
+
+    function selectDate(element, year, month, day) {
+        if (selectedDateElement) {
+            selectedDateElement.classList.remove('selected');
+        }
+        element.classList.add('selected');
+        selectedDateElement = element;
+        const selectedDate = new Date(year, month, day);
+        const dayName = dayNames[selectedDate.getDay()];
+        const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        document.getElementById('selectedDateText').textContent = `Selected Date: ${dayName}, ${monthNames[month]} ${day}, ${year}`;
+        document.getElementById('noteInput').value = notes[dateStr] || '';
+        document.getElementById('noteForm').dataset.date = dateStr;
+    }
+
+    async function saveNote() {
+        const noteInput = document.getElementById('noteInput').value;
+        const date = document.getElementById('noteForm').dataset.date;
+        await fetch('StudentPlanning/saveNote', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ date, note: noteInput })
+        });
+        await createCalendar(currentYear, currentMonth);
+        selectDate(selectedDateElement, currentYear, currentMonth, new Date(date).getDate());
+    }
+
+    async function deleteNote() {
+        const date = document.getElementById('noteForm').dataset.date;
+        await fetch('StudentPlanning/deleteNote', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ date })
+        });
+        await createCalendar(currentYear, currentMonth);
+        document.getElementById('noteInput').value = '';
+        document.getElementById('selectedDateText').textContent = 'Selected Date:';
+    }
+
+    function navigateMonth(offset) {
+        currentMonth += offset;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+        } else if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+        }
+        createCalendar(currentYear, currentMonth);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('prevMonth').addEventListener('click', function () {
+            navigateMonth(-1);
+        });
+
+        document.getElementById('nextMonth').addEventListener('click', function () {
+            navigateMonth(1);
+        });
+
+        document.getElementById('noteForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            saveNote();
+        });
+
+        document.getElementById('deleteNote').addEventListener('click', deleteNote);
+
+        createCalendar(currentYear, currentMonth);
+    });
+</script>
 <?php echo $this->endSection(); ?>
