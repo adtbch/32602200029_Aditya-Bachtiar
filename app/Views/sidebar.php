@@ -261,7 +261,7 @@
                     // Periksa apakah link sudah di-refresh
                     if (!linkRefreshStatus[linkName]) {
                         linkRefreshStatus[linkName] = true; // Tandai link telah di-refresh
-                        window.location.reload(); // Refresh halaman
+                        window.location.href = this.href; // Gunakan href untuk refresh halaman
                     } else {
                         // Update konten tanpa refresh jika link sudah di-refresh sebelumnya
                         updateContent(linkName);
