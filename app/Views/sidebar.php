@@ -96,7 +96,7 @@
                                     <img src="<?= base_url('assets/images/iconGroup.svg') ?>" alt="Profile Icon" class="me-2 col-2 custom-size">
                                     <p class="fs-5 mb-0 fw-bold d-none d-sm-block">Group Project</p>
                                 </a>
-                                <a href="#" class="d-flex align-items-end align-text-bottom gap-2 text-decoration-none w-100" id="managementLink">
+                                <a href="#" class="d-flex align-items-end align-text-bottom gap-2 text-decoration-none" id="managementLink">
                                     <img src="<?= base_url('assets/images/iconManajement.svg') ?>" alt="Profile Icon" class="me-2 col-2 custom-size">
                                     <p class="fs-5 mb-0 fw-bold d-none d-sm-block">Manajement dan Mentoring</p>
                                 </a>
