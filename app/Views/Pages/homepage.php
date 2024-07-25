@@ -220,11 +220,11 @@
     </div>
     <!-- group project todolist -->
     <div class="todoListLink-content content hidden">
-     <?=$this->include('Pages/groupProject/todoList/todoList') ?>
+     <?=$this->include('Pages/groupProject/TodoList/todoList') ?>
     </div>
     <!-- group project todolist -->
     <div class="inputTodoListLink-content content hidden">
-     <?=$this->include('Pages/groupProject/todoList/inputTodoList') ?>
+     <?=$this->include('Pages/groupProject/TodoList/inputTodoList') ?>
     </div>
     <!-- group project (meeting) -->
     <div class="meetingLink-content content hidden">
