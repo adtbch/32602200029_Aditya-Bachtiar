@@ -121,7 +121,7 @@ class StudentPlanning extends BaseController {
     {
         helper(['form']);
         $data = [];
-        return view('pages/login', $data);
+        return view('Pages/login', $data);
     }
 
     public function loginUser()
@@ -161,7 +161,7 @@ class StudentPlanning extends BaseController {
     {
         helper(['form']);
         $data = [];
-        echo view('pages/register', $data);
+        echo view('Pages/register', $data);
     }
 
     public function registerUser()
