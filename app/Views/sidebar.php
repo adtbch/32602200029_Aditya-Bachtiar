@@ -242,11 +242,11 @@
             links.forEach(link => {
                 link.addEventListener('click', function (event) {
                     event.preventDefault(); // Mencegah tindakan default link
+                    console.log(`Link clicked: ${this.textContent.trim()}`); // Debugging
 
                     // Hapus kelas 'active' dari link sebelumnya
                     if (activeLink) {
                         activeLink.classList.remove('active');
-                        window.location.reload();
                     }
 
                     // Tambahkan kelas 'active' ke link yang diklik
@@ -257,13 +257,16 @@
 
                     // Nama link yang diklik
                     const linkName = this.textContent.trim();
+                    console.log(`Link name: ${linkName}`); // Debugging
 
                     // Periksa apakah link sudah di-refresh
                     if (!linkRefreshStatus[linkName]) {
                         linkRefreshStatus[linkName] = true; // Tandai link telah di-refresh
+                        console.log(`Refreshing page for: ${linkName}`); // Debugging
                         window.location.href = this.href; // Gunakan href untuk refresh halaman
                     } else {
                         // Update konten tanpa refresh jika link sudah di-refresh sebelumnya
+                        console.log(`Updating content for: ${linkName} without refresh`); // Debugging
                         updateContent(linkName);
                     }
                 });
