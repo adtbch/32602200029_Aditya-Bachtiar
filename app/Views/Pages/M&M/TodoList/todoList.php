@@ -7,14 +7,14 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h4 class="text-white"><?= $item['catatan'] ?></h4>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="priorityUser_<?= $item['id_todolistuser'] ?>" <?= $item['priority'] ? 'checked' : '' ?> onchange="updatePriorityUser(<?= $item['id_todolistuser'] ?>)">
+                            <input class="form-check-input" type="checkbox" id="priorityUser_<?= $item['id_todolistuser'] ?>" <?= $item['priority'] ? 'checked' : '' ?> onchange="updatePriorityUser(<?= $item['id_todolistuser'] ?>, event)">
                             <label class="form-check-label text-white" for="priorityUser_<?= $item['id_todolistuser'] ?>">Priority</label>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <h6 class="text-white"><?= $item['keterangan'] ?></h6>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="selesaiUser_<?= $item['id_todolistuser'] ?>" <?= $item['selesai'] ? 'checked' : '' ?> onchange="updateSelesaiUser(<?= $item['id_todolistuser'] ?>)">
+                            <input class="form-check-input" type="checkbox" id="selesaiUser_<?= $item['id_todolistuser'] ?>" <?= $item['selesai'] ? 'checked' : '' ?> onchange="updateSelesaiUser(<?= $item['id_todolistuser'] ?>, event)"> 
                             <label class="form-check-label text-white" for="selesaiUser_<?= $item['id_todolistuser'] ?>">Selesai</label>
                         </div>
                     </div>
@@ -55,7 +55,6 @@
         })
         .then(response => response.json())
         .then(data => {
-            // Tangani respons jika diperlukan
             console.log('Priority updated', data);
         })
         .catch(error => {
@@ -73,7 +72,6 @@
         })
         .then(response => response.json())
         .then(data => {
-            // Tangani respons jika diperlukan
             console.log('Status selesai updated', data);
         })
         .catch(error => {
@@ -81,7 +79,6 @@
         });
     }
 </script>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
