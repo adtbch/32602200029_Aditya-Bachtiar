@@ -29,7 +29,7 @@ class App extends BaseConfig
      *
      * @var list<string>
      */
-    public array $allowedHostnames = ['http://remindme.up.railway.app'];
+    public array $allowedHostnames = [];
 
     /**
      * --------------------------------------------------------------------------
