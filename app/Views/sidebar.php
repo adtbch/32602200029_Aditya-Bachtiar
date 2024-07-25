@@ -246,6 +246,7 @@
                     // Hapus kelas 'active' dari link sebelumnya
                     if (activeLink) {
                         activeLink.classList.remove('active');
+                        window.location.reload();
                     }
 
                     // Tambahkan kelas 'active' ke link yang diklik
