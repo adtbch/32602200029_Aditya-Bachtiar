@@ -47,7 +47,7 @@
 <script>
     function updatePriorityUser(id) {
         console.log("priorityUser")
-        fetch(`<?= base_url("StudentPlanning/update_priorityuser") ?>/${id}`, {
+        fetch(`<?= base_url("/StudentPlanning/update_priorityuser") ?>/${id}`, {
             method: 'POST',
             body: JSON.stringify({ priorityUser: event.target.checked }),
             headers: {
@@ -57,7 +57,7 @@
     }
 
     function updateSelesaiUser(id) {
-        fetch(`<?= base_url("StudentPlanning/update_selesaiuser") ?>/${id}`, {
+        fetch(`<?= base_url("/StudentPlanning/update_selesaiuser") ?>/${id}`, {
             method: 'POST',
             body: JSON.stringify({ selesaiUser: event.target.checked }),
             headers: {
