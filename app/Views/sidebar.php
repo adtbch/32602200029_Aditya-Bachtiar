@@ -175,43 +175,37 @@
         document.addEventListener('DOMContentLoaded', function () {
             const links = document.querySelectorAll('a');
             let activeLink = null;
+            const linkRefreshStatus = {}; // Untuk melacak apakah refresh sudah dilakukan
 
-            // Fungsi untuk mengelola tampilan konten berdasarkan link yang aktif
             function updateContent(linkName) {
                 // console.log(linkName);
                 if (linkName === 'Home') {
                     document.querySelector('.home-content').classList.remove('hidden');
-                    window.location.reload();
                 } else {
                     document.querySelector('.home-content').classList.add('hidden');
                 }
                 if (linkName === 'Profile') {
                     document.querySelector('.profile-content').classList.remove('hidden');
-                    window.location.reload();
                 } else {
                     document.querySelector('.profile-content').classList.add('hidden');
                 }
                 if (linkName === 'Manajement dan Mentoring') {
                     document.querySelector('.mm-content').classList.remove('hidden');
-                    window.location.reload();
                 } else {
                     document.querySelector('.mm-content').classList.add('hidden');
                 }
                 if (linkName === 'Group Project') {
                     document.querySelector('.gp-content').classList.remove('hidden');
-                    window.location.reload();
                 } else {
                     document.querySelector('.gp-content').classList.add('hidden');
                 }
                 if (linkName === 'Calender') {
                     document.querySelector('.calender-content').classList.remove('hidden');
-                    window.location.reload();
                 } else {
                     document.querySelector('.calender-content').classList.add('hidden');
                 }
                 if (linkName === 'Project') {
                     document.querySelector('.project-content').classList.remove('hidden');
-                    window.location.reload();
                 } else {
                     document.querySelector('.project-content').classList.add('hidden');
                 }
@@ -260,13 +254,20 @@
                     // Simpan link yang aktif
                     activeLink = this;
 
-                    // Update konten berdasarkan link yang diklik
+                    // Nama link yang diklik
                     const linkName = this.textContent.trim();
-                    updateContent(linkName);
+
+                    // Periksa apakah link sudah di-refresh
+                    if (!linkRefreshStatus[linkName]) {
+                        linkRefreshStatus[linkName] = true; // Tandai link telah di-refresh
+                        window.location.reload(); // Refresh halaman
+                    } else {
+                        // Update konten tanpa refresh jika link sudah di-refresh sebelumnya
+                        updateContent(linkName);
+                    }
                 });
             });
         });
-
     </script>
 </body>
 
