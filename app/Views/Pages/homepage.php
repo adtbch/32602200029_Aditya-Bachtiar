@@ -143,11 +143,11 @@
     </div>
     <!--view MM jadwal Belajar -->
     <div class="belajarLink-content content hidden">
-    <?=$this->include('Pages/M&M/belajar/jadwalBelajar') ?>
+    <?=$this->include('Pages/M&M/Belajar/jadwalBelajar') ?>
     </div>  
     <!--view MM input jadwal Belajar -->
     <div class="inputBelajarLink-content content hidden">
-    <?=$this->include('Pages/M&M/belajar/inputJadwalBelajar') ?>
+    <?=$this->include('Pages/M&M/Belajar/inputJadwalBelajar') ?>
     </div>  
     <!-- view MM Mata Kuliah -->
     <div class="mataKuliahLink-content content hidden row container">
