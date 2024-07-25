@@ -247,12 +247,12 @@
 
 <!-- group project todolist -->
 <div class="todoListLink-content content hidden">
-    <?= $this->include('Pages/groupProject/TodoList/todoList') ?>
+    <?= $this->include('Pages/groupProject/todoList/todoList') ?>
 </div>
 
 <!-- group project todolist -->
 <div class="inputTodoListLink-content content hidden">
-    <?= $this->include('Pages/groupProject/TodoList/inputTodoList') ?>
+    <?= $this->include('Pages/groupProject/todoList/inputTodoList') ?>
 </div>
 
 <!-- group project (meeting) -->
