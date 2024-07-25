@@ -45,49 +45,30 @@
 </a>
 
 <script>
-    function updatePriorityUser(id, event) {
-        fetch(`<?= base_url("/StudentPlanning/update_priorityuser") ?>/${id}`, {
-            method: 'POST',
-            body: JSON.stringify({ priorityUser: event.target.checked ? 1 : 0 }), // Kirimkan 1 atau 0
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Priority updated', data);
-        })
-        .catch(error => {
-            console.error('Error updating priority:', error);
-        });
-    }
+    function updatePriorityUser(id) {
+    fetch(`https://remindme.up.railway.app/StudentPlanning/update_priorityuser/${id}`, {
+        method: 'POST',
+        body: JSON.stringify({ priorityUser: event.target.checked }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => response.json())
+      .then(data => console.log('Priority updated:', data))
+      .catch(error => console.error('Error updating priority:', error));
+}
 
-    function updateSelesaiUser(id, event) {
-        fetch(`<?= base_url("/StudentPlanning/update_selesaiuser") ?>/${id}`, {
-            method: 'POST',
-            body: JSON.stringify({ selesaiUser: event.target.checked ? 1 : 0 }), // Kirimkan 1 atau 0
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Status selesai updated', data);
-        })
-        .catch(error => {
-            console.error('Error updating status selesai:', error);
-        });
-    }
+function updateSelesaiUser(id) {
+    fetch(`https://remindme.up.railway.app/StudentPlanning/update_selesaiuser/${id}`, {
+        method: 'POST',
+        body: JSON.stringify({ selesaiUser: event.target.checked }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(response => response.json())
+      .then(data => console.log('Status updated:', data))
+      .catch(error => console.error('Error updating status selesai:', error));
+}
+
 </script>
 
 
