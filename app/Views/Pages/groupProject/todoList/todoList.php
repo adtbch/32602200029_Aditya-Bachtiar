@@ -46,7 +46,7 @@
 
 <script>
     function updatePriority(id) {
-        fetch(`<?= base_url("StudentPlanning/update_prioritygroup") ?>/${id}`, {
+        fetch(`<?= base_url("https://remindme.up.railway.app/StudentPlanning/update_prioritygroup") ?>/${id}`, {
             method: 'POST',
             body: JSON.stringify({ priority: event.target.checked }),
             headers: {
@@ -56,7 +56,7 @@
     }
 
     function updateSelesai(id) {
-        fetch(`<?= base_url("StudentPlanning/update_selesaigroup") ?>/${id}`, {
+        fetch(`<?= base_url("https://remindme.up.railway.app/StudentPlanning/update_selesaigroup") ?>/${id}`, {
             method: 'POST',
             body: JSON.stringify({ selesai: event.target.checked }),
             headers: {
