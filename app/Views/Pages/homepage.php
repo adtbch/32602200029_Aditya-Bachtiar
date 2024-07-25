@@ -135,11 +135,11 @@
     </div>
     <!-- view TodoList MM -->
     <div class="todoListMMLink-content content hidden">
-    <?=$this->include('Pages/M&M/todoList/todoList') ?>
+    <?=$this->include('Pages/M&M/TodoList/todoList') ?>
     </div>
     <!-- view TodoList MM -->
     <div class="inputTodoListMMLink-content content hidden">
-    <?=$this->include('Pages/M&M/todoList/inputTodoList') ?>
+    <?=$this->include('Pages/M&M/TodoList/inputTodoList') ?>
     </div>
     <!--view MM jadwal Belajar -->
     <div class="belajarLink-content content hidden">
