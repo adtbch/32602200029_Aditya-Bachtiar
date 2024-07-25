@@ -142,6 +142,7 @@
         // console.log(linkName);
         if (linkName === 'Home') {
             document.querySelector('.home-content').classList.remove('hidden');
+            window.location.reload();
         } else {
             document.querySelector('.home-content').classList.add('hidden');
         }
