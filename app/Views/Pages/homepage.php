@@ -204,7 +204,6 @@
 <div class="container timeLineLink-content content hidden">
     <?= $this->include('Pages/M&M/timelineTugas/timelineTugas') ?>
 </div>
-
 <!-- view MM Timeline Tugas -->
 <div class="container inputTimelineTugas-content content hidden">
     <?= $this->include('Pages/M&M/timelineTugas/inputTimelineTugas') ?>
