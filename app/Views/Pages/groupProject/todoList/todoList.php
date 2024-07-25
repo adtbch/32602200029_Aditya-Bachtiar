@@ -1,5 +1,6 @@
 <div class="container">
-    <h3 class="my-4 col-6 text-primary fw-bold position-relative text-decoration-underline">To do List Group<span  style="background-color: #71A430;"></span></h3>
+    <h3 class="my-4 col-6 text-primary fw-bold position-relative text-decoration-underline">To do List Group<span
+            style="background-color: #71A430;"></span></h3>
     <div class="row">
         <?php foreach ($todolistgroup as $item): ?>
             <div class="col-12 col-md-6">
@@ -7,29 +8,40 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <h4 class="text-white"><?= $item['catatan'] ?></h4>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="priority_<?= $item['id_todolistgroup'] ?>" <?= $item['priority'] ? 'checked' : '' ?> onchange="updatePriority(<?= $item['id_todolistgroup'] ?>)">
-                            <label class="form-check-label text-white" for="priority_<?= $item['id_todolistgroup'] ?>">Priority</label>
+                            <input class="form-check-input" type="checkbox" id="priority_<?= $item['id_todolistgroup'] ?>"
+                                <?= $item['priority'] ? 'checked' : '' ?>
+                                onchange="updatePriority(<?= $item['id_todolistgroup'] ?>)">
+                            <label class="form-check-label text-white"
+                                for="priority_<?= $item['id_todolistgroup'] ?>">Priority</label>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between align-items-center mt-3">
                         <h6 class="text-white"><?= $item['keterangan'] ?></h6>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="selesai_<?= $item['id_todolistgroup'] ?>" <?= $item['selesai'] ? 'checked' : '' ?> onchange="updateSelesai(<?= $item['id_todolistgroup'] ?>)">
-                            <label class="form-check-label text-white" for="selesai_<?= $item['id_todolistgroup'] ?>">Selesai</label>
+                            <input class="form-check-input" type="checkbox" id="selesai_<?= $item['id_todolistgroup'] ?>"
+                                <?= $item['selesai'] ? 'checked' : '' ?>
+                                onchange="updateSelesai(<?= $item['id_todolistgroup'] ?>)">
+                            <label class="form-check-label text-white"
+                                for="selesai_<?= $item['id_todolistgroup'] ?>">Selesai</label>
                         </div>
                     </div>
                     <div class="mt-3 d-flex justify-content-end">
-                    <form action="#" class="editTodolistgrupForm" method="get" style="display:inline;">
-                    <input type="hidden" name="id_todolistgroup" value="<?= $item['id_todolistgroup'] ?>">
-                        <a href="#" id="inputTodoListLink">
-                            <button type="submit" class="editTodolistgrupBtn" style="background-color: transparent; border: none;">
-                                <img src="<?= base_url("assets/images/editing.svg") ?>" style="height: 4vh;" class="img-fluid">
-                            </button>
-                        </a>
-                    </form>    
-                        <form action="<?= base_url("StudentPlanning/delete_todolistgroup") ?>" method="post" style="display:inline;">
+                        <form action="#" class="editTodolistgrupForm" method="get" style="display:inline;">
                             <input type="hidden" name="id_todolistgroup" value="<?= $item['id_todolistgroup'] ?>">
-                            <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus To Do List Group ini?')" style="border: none; background: none;">
+                            <a href="#" id="inputTodoListLink">
+                                <button type="submit" class="editTodolistgrupBtn"
+                                    style="background-color: transparent; border: none;">
+                                    <img src="<?= base_url("assets/images/editing.svg") ?>" style="height: 4vh;"
+                                        class="img-fluid">
+                                </button>
+                            </a>
+                        </form>
+                        <form action="<?= base_url("StudentPlanning/delete_todolistgroup") ?>" method="post"
+                            style="display:inline;">
+                            <input type="hidden" name="id_todolistgroup" value="<?= $item['id_todolistgroup'] ?>">
+                            <button type="submit"
+                                onclick="return confirm('Apakah Anda yakin ingin menghapus To Do List Group ini?')"
+                                style="border: none; background: none;">
                                 <img src="<?= base_url("assets/images/sampah.svg") ?>" alt="">
                             </button>
                         </form>
@@ -41,28 +53,35 @@
 </div>
 
 <a href="#" id="inputTodoListLink">
-    <h3 class="my-4 text-third fw-bold position-relative fst-italic">+ New<span style="background-color: #005073;" class="underline"></span></h3>
+    <h3 class="my-4 text-third fw-bold position-relative fst-italic">+ New<span style="background-color: #005073;"
+            class="underline"></span></h3>
 </a>
 
 <script>
     function updatePriority(id) {
-        fetch(`<?= base_url("https://remindme.up.railway.app/StudentPlanning/update_prioritygroup") ?>/${id}`, {
+        fetch(`https://remindme.up.railway.app/StudentPlanning/update_prioritygroup/${id}`, {
             method: 'POST',
             body: JSON.stringify({ priority: event.target.checked }),
             headers: {
                 'Content-Type': 'application/json'
             }
-        });
+        })
+            .then(response => response.json())
+            .then(data => console.log('Priority updated:', data))
+            .catch(error => console.error('Error updating priority:', error));
     }
 
     function updateSelesai(id) {
-        fetch(`<?= base_url("https://remindme.up.railway.app/StudentPlanning/update_selesaigroup") ?>/${id}`, {
+        fetch(`https://remindme.up.railway.app/StudentPlanning/update_selesaigroup/${id}`, {
             method: 'POST',
             body: JSON.stringify({ selesai: event.target.checked }),
             headers: {
                 'Content-Type': 'application/json'
             }
-        });
+        })
+            .then(response => response.json())
+            .then(data => console.log('Status updated:', data))
+            .catch(error => console.error('Error updating status selesai:', error));
     }
 </script>
 

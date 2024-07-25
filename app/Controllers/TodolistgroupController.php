@@ -64,8 +64,14 @@ class TodolistgroupController extends BaseController{
     public function update_prioritygroup($id)
     {
         $todolistgroupModel = new TodolistgroupModel();
+        $priority = $this->request->getJSON('priority');
+        
+        if ($priority === null) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid priority data']);
+        }
+        
         $data = [
-            'priority' => $this->request->getJSON('priority'),
+            'priority' => $priority,
         ];
         $todolistgroupModel->update($id, $data);
         return $this->response->setJSON(['success' => true]);
@@ -74,12 +80,17 @@ class TodolistgroupController extends BaseController{
     public function update_selesaigroup($id)
     {
         $todolistgroupModel = new TodolistgroupModel();
+        $selesai = $this->request->getJSON('selesai');
+        
+        if ($selesai === null) {
+            return $this->response->setJSON(['success' => false, 'message' => 'Invalid selesai data']);
+        }
+        
         $data = [
-            'selesai' => $this->request->getJSON('selesai'),
+            'selesai' => $selesai,
         ];
         $todolistgroupModel->update($id, $data);
         return $this->response->setJSON(['success' => true]);
     }
-    
     
 }
